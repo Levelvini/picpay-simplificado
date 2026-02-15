@@ -1,6 +1,5 @@
-package com.levelvini.picpay_simplificado.model.enums;
+package com.levelvini.picpay_simplificado.model;
 
-import com.levelvini.picpay_simplificado.model.User;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,5 +22,5 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(name = "receiver-id")
     private User receiver;
-    private LocalDateTime timestampp;
+    private LocalDateTime timestamp;
 }
