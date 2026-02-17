@@ -1,6 +1,6 @@
 package com.levelvini.picpay_simplificado.repositories;
 
-import com.levelvini.picpay_simplificado.model.enums.Transaction;
+import com.levelvini.picpay_simplificado.model.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
