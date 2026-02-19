@@ -1,5 +1,6 @@
 package com.levelvini.picpay_simplificado.service;
 
+import com.levelvini.picpay_simplificado.dtos.UserDTO;
 import com.levelvini.picpay_simplificado.exceptions.InvalidUserTypeException;
 import com.levelvini.picpay_simplificado.exceptions.ResourceNotFoundException;
 import com.levelvini.picpay_simplificado.model.User;
@@ -9,6 +10,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,8 +32,19 @@ public class UserService {
         }
     }
     @Transactional
-    public Optional<User> findUserById(){
-        return Optional.of(findUserById().orElseThrow(()-> new ResourceNotFoundException("user not founded")));
+    public User findUserById(Long id){
+        return repository.findById(id).orElseThrow(()-> new ResourceNotFoundException("user not found"));
+    }
+
+    @Transactional
+    public List<User> findAllUsers(){
+        return repository.findAll();
+    }
+
+    @Transactional
+    public User createUser(UserDTO data){
+        User saveUser = new User(data);
+        return repository.save(saveUser);
     }
 
     @Transactional
