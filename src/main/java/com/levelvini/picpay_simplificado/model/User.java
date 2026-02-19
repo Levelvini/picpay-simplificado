@@ -1,5 +1,6 @@
 package com.levelvini.picpay_simplificado.model;
 
+import com.levelvini.picpay_simplificado.dtos.UserDTO;
 import com.levelvini.picpay_simplificado.model.enums.UserType;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -25,4 +26,14 @@ public class User {
     private BigDecimal balance;
     @Enumerated(EnumType.STRING)
     private UserType userType;
+
+    public User(UserDTO data){
+        this.firstName = data.firstName();
+        this.lastName = data.LastName();
+        this.document = data.document();
+        this.email = data.email();
+        this.password = data.password();
+        this.balance = data.balance();
+        this.userType = data.userType();
+    }
 }
