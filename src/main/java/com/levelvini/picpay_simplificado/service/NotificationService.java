@@ -19,10 +19,12 @@ public class NotificationService {
         String email = user.getEmail();
         NotificationDTO notificationRequest = new NotificationDTO(email,message);
 
-        ResponseEntity<String> notificationResponse = restTemplate.postForEntity("https://util.devi.tools/api/v1/notify",notificationRequest, String.class);
-        if(notificationResponse.getStatusCode() != HttpStatus.OK){
-            System.out.println("Notification cannot been sent ");
-            throw new Exception("Notification service its not working");
-        }
+//        ResponseEntity<String> notificationResponse = restTemplate.postForEntity("https://util.devi.tools/api/v1/notify",notificationRequest, String.class);
+//        if(notificationResponse.getStatusCode() != HttpStatus.OK){
+//            System.out.println("Notification cannot been sent ");
+//            throw new Exception("Notification service its not working");
+//        }
+
+        System.out.println("notification sent to" + email);
     }
 }

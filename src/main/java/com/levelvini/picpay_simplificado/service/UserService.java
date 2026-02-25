@@ -28,7 +28,7 @@ public class UserService {
         }
 
         if (sender.getBalance().compareTo(amount) < 0) {
-            throw new ArithmeticException("saldo insuficiente");
+            throw new ArithmeticException("insufficient balance");
         }
     }
     @Transactional
